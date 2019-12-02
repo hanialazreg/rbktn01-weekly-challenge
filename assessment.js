@@ -43,17 +43,17 @@ function daBears() {
 // Which function(s) access the "chair" variable and get "Too Big!"
 // (Delete wrong answers, leave correct ones)
 
-var fairyTale1 = ["daBears", "papaBear", "mamaBear", "babyBear", "goldilocks"];
+var fairyTale1 = ["daBears", "papaBear", "goldilocks"];
 
 // Which function(s) access the "feeling" variable and get "Hungry"
 // (Delete wrong answers, leave correct ones)
 
-var fairyTale2 = ["daBears", "papaBear", "mamaBear", "babyBear", "goldilocks"];
+var fairyTale2 = ["daBears", "papaBear", "goldilocks"];
 
 // Which function(s) access the "porridge" variable and get "Too Cold!"
 // (Delete wrong answers, leave correct ones)
 
-var fairyTale3 = ["daBears", "papaBear", "mamaBear", "babyBear", "goldilocks"];
+var fairyTale3 = ["daBears", "papaBear", "mamaBear", "goldilocks"];
 
 // Which function(s) access the "sleepy" variable and get undefined
 // (Delete wrong answers, leave correct ones)
@@ -63,7 +63,7 @@ var fairyTale4 = ["daBears", "papaBear", "mamaBear", "babyBear", "goldilocks"];
 // Which function(s) access the isFurry variable and get true
 // (Delete wrong answers, leave correct ones)
 
-var fairyTale5 = ["daBears", "papaBear", "mamaBear", "babyBear", "goldilocks"];
+var fairyTale5 = ["daBears"];
 
 
 // *************
@@ -82,7 +82,25 @@ var fairyTale5 = ["daBears", "papaBear", "mamaBear", "babyBear", "goldilocks"];
 // "charger" once, and invoke it twice on "mustang".
 
 // CODE HERE...
+var Vehicle = function(){
+	this.gasRemaining = 100;
+	
+};
+Vehicle.prototype.drive = function(){
+	this.gasRemaining = gasRemaining - 25 ;
+};
+var Charger = function(){
+	charger.prototype = Object.create(Vehicle.prototype);
+	this.drive();
 
+};
+
+var Mustang = function(){
+	mustang.prototype = Object.create(Vehicle.prototype);
+	this.drive();
+	this.drive();
+
+}
 
 
 
@@ -103,7 +121,21 @@ var fairyTale5 = ["daBears", "papaBear", "mamaBear", "babyBear", "goldilocks"];
 
 // Your method may be passed punctuation, numbers or other non-letter characters
 // and should neither modify them nor break when encountering them.
+function grammarPolice(string){
+	string.toLowerCase();
+	var arr = string.split(' ');
+	var str ;
+	var fstr= " ";
+	for (var i = 0; i < arr.length; i++) {
+		str = arr[i];
+		str[0].toLowerCase();
+	}
+	for (var i = 0; i < arr.length; i++) {
+		fstr = fstr + " " + arr[i];
+	}
+	return fstr ;
 
+}
 
 
 
@@ -126,6 +158,21 @@ var fairyTale5 = ["daBears", "papaBear", "mamaBear", "babyBear", "goldilocks"];
 // In all other cases, return "Different values"
 
 // CODE HERE...
+function valueType(param1, param2){
+	if(param1 === param2){
+		if (typeof(param1) === typeof(param2)) {
+			return "Exactly the same";
+		}
+		else {
+			return "Same value, different types";
+		}
+
+	}
+	else {
+		return "Different values";
+	}
+
+}
 
 // *************
 // * PROBLEM 5 *
@@ -151,6 +198,9 @@ function large() {
 
     return 'My name is ' + this.name + ' and I am very heavy!'
 }
+
+var boundToElephant =  large.bind(elephant);
+
   // CODE HERE...
 
 // *************
@@ -165,7 +215,11 @@ function large() {
 
 // CODE HERE...
 
+function deathStar(capacity, crew){
 
+
+
+}
 // *************
 // * PROBLEM 7 *
 // *************
@@ -178,3 +232,6 @@ function large() {
 // The closure function will return the combined value of assets and liabilities.
 
 // CODE HERE...
+function accountingOffice(){
+	
+}
