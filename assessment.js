@@ -43,27 +43,28 @@ function daBears() {
 // Which function(s) access the "chair" variable and get "Too Big!"
 // (Delete wrong answers, leave correct ones)
 
-var fairyTale1 = ["daBears", "papaBear", "goldilocks"];
+var fairyTale1 = ["papaBear","mamaBear"];
 
 // Which function(s) access the "feeling" variable and get "Hungry"
 // (Delete wrong answers, leave correct ones)
 
-var fairyTale2 = ["daBears", "papaBear", "goldilocks"];
+var fairyTale2 = ["goldilocks"];
 
 // Which function(s) access the "porridge" variable and get "Too Cold!"
 // (Delete wrong answers, leave correct ones)
 
-var fairyTale3 = ["daBears", "papaBear", "mamaBear", "goldilocks"];
+var fairyTale3 = ["mamaBear"];
 
 // Which function(s) access the "sleepy" variable and get undefined
 // (Delete wrong answers, leave correct ones)
 
-var fairyTale4 = ["daBears", "papaBear", "mamaBear", "babyBear", "goldilocks"];
+var fairyTale4 = ["daBears", "papaBear", "mamaBear","goldilocks"];
 
 // Which function(s) access the isFurry variable and get true
 // (Delete wrong answers, leave correct ones)
 
-var fairyTale5 = ["daBears"];
+var fairyTale5 = ["daBears", "papaBear", "mamaBear", "babyBear"];
+
 
 
 // *************
@@ -89,18 +90,15 @@ var Vehicle = function(){
 Vehicle.prototype.drive = function(){
 	this.gasRemaining = gasRemaining - 25 ;
 };
-var Charger = function(){
-	charger.prototype = Object.create(Vehicle.prototype);
-	this.drive();
 
-};
+var charger = new Vehicle();
+var mustang = new Vehicle();
 
-var Mustang = function(){
-	mustang.prototype = Object.create(Vehicle.prototype);
-	this.drive();
-	this.drive();
+charger.drive();
+mustang.drive();
+mustang.drive();
 
-}
+
 
 
 
@@ -121,22 +119,31 @@ var Mustang = function(){
 
 // Your method may be passed punctuation, numbers or other non-letter characters
 // and should neither modify them nor break when encountering them.
+// function String(string){
+
 function grammarPolice(string){
-	string.toLowerCase();
+	 string.toLowerCase();
+	 var str;
+	var fstr;
+	var arr1 = [];
+	// console.log(string);
+	
 	var arr = string.split(' ');
-	var str ;
-	var fstr= " ";
+
 	for (var i = 0; i < arr.length; i++) {
-		str = arr[i];
-		str[0].toLowerCase();
+	 	str = arr[i];
+	 	str[0].toUpperCase();
+	 	arr1.push(str);
+	 	
 	}
-	for (var i = 0; i < arr.length; i++) {
-		fstr = fstr + " " + arr[i];
+	for (var i = 0; i < arr1.length; i++) {
+		fstr = fstr + " " + arr1[i];
 	}
-	return fstr ;
+
+return fstr;
 
 }
-
+	
 
 
 // CODE HERE...
@@ -159,14 +166,20 @@ function grammarPolice(string){
 
 // CODE HERE...
 function valueType(param1, param2){
-	if(param1 === param2){
-		if (typeof(param1) === typeof(param2)) {
+	if(typeof(param1) === "object"){
+		if (typeof(param2) === "object" ) {
+			if(JSON.stringify(param1) === JSON.stringify(param2))
 			return "Exactly the same";
 		}
-		else {
-			return "Same value, different types";
+	if(Array.array(param1) && Array.array(param2)){
+		if(param1.length === param2.length){
+			for (var i = 0; i < param1.length; i++) {
+				if(param1[i] !== param2[i]){
+					return "Same value, different types";
+				}
+				return "Exactly the same";
+			}
 		}
-
 	}
 	else {
 		return "Different values";
@@ -216,9 +229,8 @@ var boundToElephant =  large.bind(elephant);
 // CODE HERE...
 
 function deathStar(capacity, crew){
-
-
-
+	var bound = capacity.bind(crew);
+	return bound;
 }
 // *************
 // * PROBLEM 7 *
@@ -232,6 +244,11 @@ function deathStar(capacity, crew){
 // The closure function will return the combined value of assets and liabilities.
 
 // CODE HERE...
-function accountingOffice(){
+function accountingOffice(assets){
+	
+	return function (liabilities) {
+        assets + liabilities;
+    }
+	
 	
 }
